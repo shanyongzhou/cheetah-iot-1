@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheetah.bootstrap.mdc.dao.LocaleDao">
+    <select id="getErrorCodeLocaleMessageList" resultType="com.cheetah.bootstrap.mdc.entity.LocaleMessage">
+        SELECT code,
+        lang as "localeString",
+        meaning as "text"
+        FROM uap_error_code
+    </select>
+    <select id="getLocaleTextList" resultType="com.cheetah.bootstrap.mdc.entity.LocaleMessage">
+        SELECT text_id AS "code" ,
+        lang as "localeString" ,
+        text
+        FROM p_sys_code_language
+    </select>
+
+    <select id="getLocaleText" resultType="com.cheetah.bootstrap.mdc.entity.LocaleMessage">
+        SELECT text_id AS "code" ,
+        lang as "localeString" ,
+        text
+        FROM p_sys_code_language
+        WHERE text_id = #{key}
+        AND lang = #{localeString}
+    </select>
+
+    <select id="getLocaleErrorCode" resultType="com.cheetah.bootstrap.mdc.entity.LocaleMessage">
+        SELECT code,
+        lang as "localeString",
+        meaning as "text"
+        FROM uap_error_code
+        WHERE text_id = #{key}
+        AND lang = #{localeString}
+    </select>
+</mapper>

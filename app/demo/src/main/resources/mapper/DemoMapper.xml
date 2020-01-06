@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheetah.cloud.app.demo.dao.DemoDao">
+    <select id="queryOptions" resultType="com.cheetah.common.web.entity.system.Pair">
+        SELECT code.value AS "key",
+        language.text AS "value"
+        FROM p_sys_code code LEFT JOIN p_sys_code_language language ON code.name = language.text_id
+        WHERE code.code_type = #{code}
+        AND language.lang = #{localeString}
+    </select>
+</mapper>

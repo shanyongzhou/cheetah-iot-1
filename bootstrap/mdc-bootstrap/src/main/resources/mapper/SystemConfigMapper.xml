@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheetah.bootstrap.mdc.dao.SystemConfigDao">
+    <!--获取系统配置参数列表-->
+    <select id="getPropertiesList" resultType="com.cheetah.bootstrap.mdc.entity.ConfigurationProperty">
+        SELECT  item_name as "key",
+                item_value as "value"
+        FROM p_sys_configuration_items
+    </select>
+    <!--根据配置项名称查询配置项值-->
+    <select id="getPropertyValueByName" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT item_value
+        FROM p_sys_configuration_items
+        WHERE item_name = #{_parameter}
+    </select>
+</mapper>

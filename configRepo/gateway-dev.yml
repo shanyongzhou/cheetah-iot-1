@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - HEAD
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowCredentials: true
+            allowHeaders: "*"
+            exposedHeaders: "Set-Cookie"
+      discovery:
+        locator:
+          enabled: true
+      sentinel:
+        transport:
+          dashboard: localhost:8081
+uap:
+  url: http://172.30.12.42:8080/uap/

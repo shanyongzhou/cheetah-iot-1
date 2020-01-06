@@ -1,0 +1,23 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: mdcbootstrap
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        serviceId: configcenter
+server:
+  port: 8085
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8000/eureka
+logging:
+  config: http://localhost:8888/*/dev/*/log4j.yml
+#  level:
+#    org.apache.kafka.clients.producer: trace

@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@172.30.12.203:1521:orcl
+    username: cheetah
+    password: cheetah
+  redis:
+    sentinel:
+      master: mymaster
+      nodes: 172.30.12.42:26379, 172.30.12.42:26380
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 500ms
+        max-idle: 8
+        min-idle: 1
+    # timeout: 500ms
+  cloud:
+    stream:
+      bindings:
+        cache_update_output:
+          destination: cheetah_cache
+    sentinel:
+      transport:
+        dashboard: localhost:8081
+mybatis:
+  mapper-locations: classpath:mapper/*.xml, classpath:mapper/*/*.xml
+sentinel:
+  zookeeper:
+    address: localhost:2181

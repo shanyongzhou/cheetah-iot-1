@@ -1,0 +1,27 @@
+spring:
+  # 控制台支持ansi编码，不知道作用可以不用
+  output:
+    ansi:
+      enabled: ALWAYS
+  # 本应用名称，同时名称的大写格式将被作为注册中心的默认服务名
+  application:
+    name: demo
+  cloud:
+    # 配置中心相关配置，开发时不需要修改
+    config:
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        serviceId: configcenter
+# 本应用启动时 tomcat 监听的 http 端口，即其他应用访问此应用时的端口
+server:
+  port: 8088
+# 注册中心节点地址，可配置多个，也可配置一个
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8000/eureka
+# log4j2 配置文件位置
+logging:
+  config: http://localhost:8888/*/dev/*/log4j.yml

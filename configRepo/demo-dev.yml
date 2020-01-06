@@ -1,0 +1,36 @@
+spring:
+  # 数据源
+  datasource:
+    url: jdbc:oracle:thin:@172.30.12.203:1521:orcl
+    username: cheetah
+    password: cheetah
+  # redis 哨兵节点
+  redis:
+    sentinel:
+      master: mymaster
+      nodes: 172.30.12.42:26379, 172.30.12.42:26380
+    database: 0
+    # jedis连接池
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 350ms
+        max-idle: 8
+        min-idle: 1
+  cloud:
+    # spring-cloud-stream binders 配置
+    stream:
+      bindings:
+        cache_update_input:
+          destination: cheetah_cache
+    # alibaba sentinel 配置
+    sentinel:
+      transport:
+        dashboard: localhost:8081
+# mybatis mapper 文件 locations配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml, classpath:mapper/*/*.xml
+# alibaba sentinel 使用的zookeeper服务地址
+sentinel:
+  zookeeper:
+    address: localhost:2181

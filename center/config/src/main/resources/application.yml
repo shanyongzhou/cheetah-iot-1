@@ -1,0 +1,33 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native
+  application:
+    name: configcenter
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file:///D:/configRepo
+#        git:
+#          uri: file:///D:/configRepo
+#          search-paths: vending
+#    stream:
+#      kafka:
+#        binder:
+#          brokers: localhost:9092
+#          zkNodes: localhost:2181
+logging:
+  level:
+    org.springframework.cloud: DEBUG
+    org.apache.kafka: ERROR
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8000/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

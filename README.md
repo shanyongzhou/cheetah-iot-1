@@ -1,6 +1,6 @@
-# MDC-cloud: 微服务化的 mdc
+# CHEETAH-cloud: 微服务化的 IOT
 ## 0. 概述
-基于 `spring-cloud` 构建的微服务版的 MDC 系统.
+基于 `spring-cloud` 构建的微服务版的 IOT 系统.
 
 ## 1. 编译和使用
 ### 1.1 编译
@@ -31,9 +31,8 @@
 |kafka|2.0.1+|
 |redis|2.8+|
 |zookeeper|3.4.14+|
-|uap|1.0.0+|
 
-请在启动 `mdc-cloud` 之前确保以上对应版本的应用已正常启动
+请在启动 `cheetah-cloud` 之前确保以上对应版本的应用已正常启动
 #### 1.2.1 单机快速启动
 如果只是测试或者本地开发，可以使用默认配置启动，在 `/bin` 目录下提供了默认配置启动批处理脚本，需要按以下顺序运行:
 1. center_single.bat
